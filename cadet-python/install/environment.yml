@@ -1,0 +1,35 @@
+name: cadet
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - gitpython
+  - jupyterlab
+  - jupyter
+  - jupytext
+  - pre-commit
+  - openpyxl
+  - cadet
+  - pip
+  - pip:
+    - cadet
+    - nbtoolbelt
+    - jupyterlab_myst
+    - jupyterlab_deck
+    - ipympl
+    - ipywidgets
+    - matplotlib
+    - plotly
+    - numpy
+    - pandas 
+    - scipy
+    - networkx
+    - dash
+    - python-dotenv
+    - rdkit
+    - nbformat
+    - black
+    - ruff
+    - pynvim
+    - scikit-learn
+    - shap
