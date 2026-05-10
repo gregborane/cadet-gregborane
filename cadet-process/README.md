@@ -1,6 +1,6 @@
 # Context
 
-Fork from the official [CADET-WORKSHOP](https://github.com/cadet/CADET-Workshop) repo
+Cloned from [CADET-WORKSHOP](https://github.com/cadet/CADET-Workshop)
 
 ## Structure
 
@@ -21,6 +21,6 @@ Project
 
 I want to perform chrommatography simulations paired with machine learning
 
-Trained with the perspective to used with some models
+Trained with the perspective to used with some machine learning models
 
 
