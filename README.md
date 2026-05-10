@@ -2,7 +2,7 @@
 
 ## Motivation
 
-This repo is used to archive my files for CADET simulation (chromatography simulations).
+This repo is used to archive my files for [CADET](https://github.com/cadet) simulation (chromatography simulations).
 
 It will be used for both :
 
