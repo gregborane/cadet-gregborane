@@ -9,10 +9,10 @@ dependencies:
   - jupytext
   - pre-commit
   - openpyxl
-  - cadet
   - pip
   - pip:
     - cadet
+    - cadet-python
     - nbtoolbelt
     - jupyterlab_myst
     - jupyterlab_deck
@@ -21,7 +21,7 @@ dependencies:
     - matplotlib
     - plotly
     - numpy
-    - pandas 
+    - pandas
     - scipy
     - networkx
     - dash

@@ -2,7 +2,7 @@ from cadet import Cadet
 import numpy as np
 import matplotlib.pyplot as plt
 
-Cadet.cadet_path = r"C:\Users\zwend\CADET\cadet_act2025\bin\cadet-cli.exe"  ## IMPORTANT: use a version higher than 5.0.4
+# Cadet.cadet_path = "/home/greg/Work/cadet/CADET-Core/install/bin/cadet-cli"
 
 ## system settings
 column_length = 0.025  ## m
@@ -15,9 +15,13 @@ Q = 1.25 / (6e7)  ## volumetric flow rate, m^3/s
 elution_pH_start = 5.5
 elution_pH_end = 3.3
 
-loading = 50.0  ## mg/mL resin
+loading = 0.097  ## mg/mL resin
 c_feed = 4.0 / protein_MW  ## mol/m^3
 RT = column_volume / Q  ## s
+
+print(RT)
+
+# %%
 
 event_CV = [
     0.0,
@@ -251,6 +255,7 @@ model.load()
 time = model.root.output.solution.solution_times
 c = model.root.output.solution.unit_001.solution_outlet_comp_001
 pH_outlet = model.root.output.solution.unit_001.solution_outlet_comp_000
+# %%
 
 fig = plt.figure()
 ax = fig.add_subplot()
@@ -262,4 +267,5 @@ ax_ph = ax.twinx()
 ax_ph.plot(time / 60 * Q * 6e7, pH_outlet, label="pH")
 ax_ph.set_ylabel("pH")
 plt.show()
+
 # %%

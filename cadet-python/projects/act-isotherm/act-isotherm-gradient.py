@@ -7,23 +7,19 @@ import matplotlib.pyplot as plt
 
 # %%
 home_directory = os.environ.get("HOME")
-cadet_folder = "Work/cadet"
-cadet_bin = "CADET-Core/install/bin/cadet-cli"
-cadet_normal = "cadet-python"
-cadet_bin_path = home_directory + "/" + cadet_folder + "/" + cadet_bin
-savefig_path = (
-    home_directory + "/" + cadet_folder + "/" + cadet_normal + "/act-isotherm/graphs"
-)
+cadet_bin = f"{home_directory}/Work/cadet/CADET-Core/install/bin/cadet-cli"
+fig_dir = f"{home_directory}/Work/cadet/cadet-python/projects/act-isotherm/graphs"
+h5_dir = f"{home_directory}/Work/cadet/cadet-python/projects/act-isotherm/h5"
 
 print(
-    f"HOME DIR {home_directory} \n",
-    f"CADET FOLDER {cadet_folder} \n",
-    f"CADET BIN {cadet_bin} \n",
-    f"CADET NORMAL {cadet_normal} \n",
-    f"CADET BIN PATH {cadet_bin_path} \n",
-    f"SAVEFIG PATH {savefig_path} \n",
+    f"HOME_DIR: {home_directory} \n",
+    f"CADET_BIN: {cadet_bin} \n",
+    f"CADET_GRAPH: {fig_dir} \n",
+    f"CADET_H5: {h5_dir} \n",
 )
-Cadet.cadet_path = f"{cadet_bin_path}"
+
+# %%
+# Cadet.cadet_path = cadet_bin
 
 # %%
 col_order = [
@@ -249,7 +245,7 @@ tables = [
         "mAb": "A",
         0.250: {
             "residence_time_min": [1.43, 1.00, 2.00, 3.00, 4.00, 5.00, 3.33, 2.00],
-            "gradient_length_CV": [30, 20, 15, 10, 5, 0, 0, 10],
+            "gradient_length_CV": [30, 20, 15, 10, 5, 10**-7, 10**-7, 10],
             "pH_wash_pH_elute": [
                 [5.5, 3.0],
                 [5.5, 3.0],
@@ -263,7 +259,7 @@ tables = [
         },
         0.620: {
             "residence_time_min": [1.43, 1.00, 2.00, 3.00, 4.00, 5.00, 3.33, 2.00],
-            "gradient_length_CV": [30, 20, 15, 10, 5, 0, 0, 10],
+            "gradient_length_CV": [30, 20, 15, 10, 5, 10**-7, 10**-7, 10],
             "pH_wash_pH_elute": [
                 [5.5, 3.0],
                 [5.5, 3.0],
@@ -277,7 +273,7 @@ tables = [
         },
         2.521: {
             "residence_time_min": [1.43, 1.00, 2.00, 3.00, 4.00, 5.00, None, None],
-            "gradient_length_CV": [30, 20, 15, 10, 5, 0, None, None],
+            "gradient_length_CV": [30, 20, 15, 10, 5, 10**-7, None, None],
             "pH_wash_pH_elute": [
                 [5.5, 3.0],
                 [5.5, 3.0],
@@ -296,7 +292,7 @@ tables = [
         "mAb": "A",
         0.265: {
             "residence_time_min": [1.43, 1.00, 2.00, 3.00, 4.00, 5.00],
-            "gradient_length_CV": [30, 20, 15, 10, 5, 0],
+            "gradient_length_CV": [30, 20, 15, 10, 5, 10**-7],
             "pH_wash_pH_elute": [
                 [6.0, 3.0],
                 [6.0, 3.0],
@@ -308,7 +304,7 @@ tables = [
         },
         2.695: {
             "residence_time_min": [1.43, 1.00, 2.00, 3.00, 4.00, 5.00],
-            "gradient_length_CV": [30, 20, 15, 10, 5, 0],
+            "gradient_length_CV": [30, 20, 15, 10, 5, 10**-7],
             "pH_wash_pH_elute": [
                 [6.0, 3.0],
                 [6.0, 3.0],
@@ -325,7 +321,7 @@ tables = [
         "mAb": "A",
         0.265: {
             "residence_time_min": [2.50, 2.00, 3.33, 3.85, 5.00, 6.00],
-            "gradient_length_CV": [30, 20, 15, 10, 5, 0],
+            "gradient_length_CV": [30, 20, 15, 10, 5, 10**-7],
             "pH_wash_pH_elute": [
                 [5.2, 2.7],
                 [5.2, 2.7],
@@ -337,7 +333,7 @@ tables = [
         },
         0.743: {
             "residence_time_min": [2.50, 2.00, 3.33, 3.85, 5.00, 6.00],
-            "gradient_length_CV": [30, 20, 15, 10, 5, 0],
+            "gradient_length_CV": [30, 20, 15, 10, 5, 10**-7],
             "pH_wash_pH_elute": [
                 [5.2, 2.7],
                 [5.2, 2.7],
@@ -811,7 +807,9 @@ for i, table in enumerate(tables):
                 0, (event_CV[1] + event_CV[2] + event_CV[3] + 5.5) * RT, 201
             )
 
-            model.filename = f"h5/act-isotherms-{table.get('mAb')}-{col_order[i]}.h5"
+            model.filename = (
+                f"{h5_dir}/act-isotherms-{table.get('mAb')}-{col_order[i]}-{group}.h5"
+            )
             model.save()
             data = model.run()
 
@@ -834,5 +832,7 @@ for i, table in enumerate(tables):
             ax_ph = ax.twinx()
             ax_ph.plot(time / 60 * Q * 6e7, pH_outlet, label="pH")
             ax_ph.set_ylabel("pH")
-            plt.savefig(f"{savefig_path}/{table.get('mAb')}_{col_order[i]}.png")
+            plt.savefig(
+                f"{fig_dir}/mAb{table.get('mAb')}_col{col_order[i]}_CV{G}_gradient.png"
+            )
 # %%

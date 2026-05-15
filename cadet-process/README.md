@@ -2,7 +2,7 @@
 
 Cloned from [CADET-WORKSHOP](https://github.com/cadet/CADET-Workshop)
 
-## Structure
+# Structure
 
 ```
 Train
@@ -17,10 +17,14 @@ Project
 |
 |- Different project combined for my training
 ```
-## Objective
+
+# Objective
 
 I want to perform chrommatography simulations paired with machine learning
 
 Trained with the perspective to used with some machine learning models
 
+# Usefull links
 
+- [Tutorial](https://github.com/cadet/CADET-Workshop)
+- [API calls](https://cadet-process.readthedocs.io/en/v0.12.0/)
