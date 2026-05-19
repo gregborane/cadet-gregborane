@@ -1,3 +1,5 @@
+# %%
+
 from cadet import Cadet
 import numpy as np
 import matplotlib.pyplot as plt
@@ -137,40 +139,16 @@ model.root.input.solver.sections.section_times = [
 model.root.input.solver.sections.section_continuity = [0, 0, 0, 0]
 
 ## load
-model.root.input.model.unit_000.sec_000.const_coeff = [
-    7.2,
-    c_feed,
-]  # mol / m^3
-model.root.input.model.unit_000.sec_000.lin_coeff = [
-    0.0,
-    0.0,
-]
-model.root.input.model.unit_000.sec_000.quad_coeff = [
-    0.0,
-    0.0,
-]
-model.root.input.model.unit_000.sec_000.cube_coeff = [
-    0.0,
-    0.0,
-]
+model.root.input.model.unit_000.sec_000.const_coeff = [7.2, c_feed]  # mol / m^3
+model.root.input.model.unit_000.sec_000.lin_coeff = [0.0, 0.0]
+model.root.input.model.unit_000.sec_000.quad_coeff = [0.0, 0.0]
+model.root.input.model.unit_000.sec_000.cube_coeff = [0.0, 0.0]
 
 ## wash
-model.root.input.model.unit_000.sec_001.const_coeff = [
-    5.5,
-    0.0,
-]
-model.root.input.model.unit_000.sec_001.lin_coeff = [
-    0.0,
-    0.0,
-]
-model.root.input.model.unit_000.sec_001.quad_coeff = [
-    0.0,
-    0.0,
-]
-model.root.input.model.unit_000.sec_001.cube_coeff = [
-    0.0,
-    0.0,
-]
+model.root.input.model.unit_000.sec_001.const_coeff = [5.5, 0.0]
+model.root.input.model.unit_000.sec_001.lin_coeff = [0.0, 0.0]
+model.root.input.model.unit_000.sec_001.quad_coeff = [0.0, 0.0]
+model.root.input.model.unit_000.sec_001.cube_coeff = [0.0, 0.0]
 
 ## elution
 model.root.input.model.unit_000.sec_002.const_coeff = [elution_pH_start, 0.0]
@@ -178,43 +156,20 @@ model.root.input.model.unit_000.sec_002.lin_coeff = [
     -(elution_pH_start - elution_pH_end) / (event_CV[3] * RT),
     0.0,
 ]
-model.root.input.model.unit_000.sec_002.quad_coeff = [
-    0.0,
-    0.0,
-]
-model.root.input.model.unit_000.sec_002.cube_coeff = [
-    0.0,
-    0.0,
-]
+model.root.input.model.unit_000.sec_002.quad_coeff = [0.0, 0.0]
+model.root.input.model.unit_000.sec_002.cube_coeff = [0.0, 0.0]
 
 ## end
 model.root.input.model.unit_000.sec_003.const_coeff = [elution_pH_end, 0.0]
-model.root.input.model.unit_000.sec_003.lin_coeff = [
-    0.0,
-    0.0,
-]
-model.root.input.model.unit_000.sec_003.quad_coeff = [
-    0.0,
-    0.0,
-]
-model.root.input.model.unit_000.sec_003.cube_coeff = [
-    0.0,
-    0.0,
-]
+model.root.input.model.unit_000.sec_003.lin_coeff = [0.0, 0.0]
+model.root.input.model.unit_000.sec_003.quad_coeff = [0.0, 0.0]
+model.root.input.model.unit_000.sec_003.cube_coeff = [0.0, 0.0]
 
 model.root.input.model.connections.nswitches = 1
 model.root.input.model.connections.switch_000.section = 0
 model.root.input.model.connections.switch_000.connections = [
-    0,
-    1,
-    -1,
-    -1,
-    Q,
-    1,
-    2,
-    -1,
-    -1,
-    Q,
+    (0, 1, -1, -1, Q),
+    (1, 2, -1, -1, Q),
 ]
 
 model.root.input.model.solver.gs_type = 1

@@ -1,7 +1,7 @@
 # CADET-Core
 CADET-Core
 
-# cadet-python/projects/.env
+cadet-python/projects/.env
 
 # act-project
 cadet-python/projects/act-isotherm/graphs
@@ -10,5 +10,8 @@ cadet-python/projects/act-isotherm/h5
 # IEX-H5
 cadet-python/projects/IEX-H5/graphs
 cadet-python/projects/IEX-H5/h5
+
+# data
+cadet-python/data
 
 

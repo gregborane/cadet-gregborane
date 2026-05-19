@@ -13,6 +13,7 @@ dependencies:
   - pip:
     - cadet
     - cadet-python
+    - CADETMatch
     - nbtoolbelt
     - jupyterlab_myst
     - jupyterlab_deck

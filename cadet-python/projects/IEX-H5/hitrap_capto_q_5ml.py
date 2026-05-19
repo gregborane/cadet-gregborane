@@ -31,21 +31,41 @@ Outlet with the 3 mol from Inlet2
 
 # %%
 import sys
-
+from dotenv import load_dotenv
 sys.path.append("..")
 from utils import *
+
+load_dotenv()
 
 # %%
 langmuir_model = get_cadet_template(n_units=5)
 n_comp = 3
 
+# %%
 # col param
-col_vol = 25 * 10**-5
-col_l = 0.2
-col_sec = col_vol / col_l
 
+print(data)
+
+# %%
 #
-RT = 60
+# col param
+col_vol = 5 * 10**-6 # m**3
+col_l = 0.025 # m 
+col_sec = np.pi * 0.016**2 # m**2
+
+# DOI : 10.1002/jssc.202200943
+# DOI : 10.1016/j.chroma.2004.10.008
+# DOI : 10.1002/jctb.7239
+# DOI : 10.1016/B978-0-323-95879-0.50003-5
+col_por = 0.40
+col_disp =  # Dax = u(ax) * L * sigma² / tau² and u(ax) = L / t0 (deriative of position : to time Pos/Time) or u(ax) = us / eps
+par_por = 0.75
+par_rad = 45e-6
+
+mw_prot1 = 316 # kda
+mw_impu1 = 105 # kda
+mw_impu2 = 3.8 # #kda / projected value, not in range of calibration
+RT = 60 # s
 t_cycle = 20 * col_vol * RT
 
 # Feed

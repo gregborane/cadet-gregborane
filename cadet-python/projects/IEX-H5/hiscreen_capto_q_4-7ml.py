@@ -40,9 +40,18 @@ langmuir_model = get_cadet_template(n_units=5)
 n_comp = 3
 
 # col param
-col_vol = 25 * 10**-5
-col_l = 0.2
+col_vol = 4.7 * 10**-6
+col_l = 0.1
 col_sec = col_vol / col_l
+
+# DOI : 10.1002/jssc.202200943
+# DOI : 10.1016/j.chroma.2004.10.008
+# DOI : 10.1002/jctb.7239
+# DOI : 10.1016/B978-0-323-95879-0.50003-5
+col_por = 0.40
+col_disp =  # Dax = u(ax) * L * sigma² / tau² and u(ax) = L / t0 (deriative of position : to time Pos/Time) or u(ax) = us / eps
+par_por = 0.75
+par_rad = 45e-6
 
 #
 RT = 60
@@ -72,7 +81,7 @@ langmuir_model.root.input.model.unit_003.col_length = col_l
 langmuir_model.root.input.model.unit_003.cross_section_area = col_sec
 langmuir_model.root.input.model.unit_003.col_porosity = 0.37
 langmuir_model.root.input.model.unit_003.par_porosity = 0.33
-langmuir_model.root.input.model.unit_003.par_radius = 4.5e-5
+langmuir_model.root.input.model.unit_003.par_radius = (90e-6)/2
 
 langmuir_model.root.input.model.unit_003.col_dispersion = 2.0e-7
 langmuir_model.root.input.model.unit_003.film_diffusion = [1e-4, 1e-4, 1e-4]
