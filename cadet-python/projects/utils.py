@@ -2,7 +2,7 @@ import os
 from IPython.display import display, HTML, clear_output
 from IPython.display import Image
 import numpy as np
-import modin.pandas as pd
+import pandas as pd
 import scipy
 from addict import Dict
 import json

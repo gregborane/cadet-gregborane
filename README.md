@@ -32,9 +32,9 @@ In this repo, you can find :
 |
 |-- cadet-python ---|
                     |
-                    |-- Install  : .yml + .sh
-                    |-- Projects : ACT-Isotherm, Template (probably)
-                    |-- Tuto     : cloned
+                    |-- Install           : .yml + .sh
+                    |-- Projects examples : ACT-Isotherm, Template (probably)
+                    |-- Tuto              : cloned
 |
 |
 |- cadet-process --|
