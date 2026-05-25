@@ -38,7 +38,6 @@ from utils import *
 
 load_dotenv()
 
-
 # %%
 
 # akta config
@@ -59,7 +58,6 @@ sigma = float(os.getenv("IEXH5_HITRAP_sigma"))
 tau = float(os.getenv("IEXH5_HITRAP_tau")) * 60  # s
 
 # %%
-
 # DOI : 10.1002/jssc.202200943
 # DOI : 10.1016/j.chroma.2004.10.008
 # DOI : 10.1002/jctb.7239
@@ -82,7 +80,8 @@ avogadro_numb = 6.023 * 10**24
 # is it concentrated ?
 # is it denatured ?
 # eta * Do = kb * T / (6 * pi * rH)
-#
+
+
 def compute_kf(rm, u, D0, Dm):
     global eta, rho, por_rad
     """
@@ -99,6 +98,8 @@ def compute_rm(Mw):
 
     return ((3 / (4 * np.pi)) * (Mw / (rho_prot * avogadro_numb))) ** (1 / 3)
 
+
+D0 = 10**-7
 
 mw_prot1 = 316  # kda
 rm_prot1 = compute_rm(mw_prot1)
@@ -187,7 +188,11 @@ langmuir_model.root.input.solver.sections.nsec = 2
 langmuir_model.root.input.solver.sections.section_times = [0.0, 20 * 60, 37 * 60]
 langmuir_model.root.input.solver.sections.section_continuity = [0]
 
-langmuir_model.root.input.model.unit_000.sec_000.lin_coeff = [/]
+langmuir_model.root.input.model.unit_000.sec_000.lin_coeff = [
+    1 / (20 * 60),
+    1 / (20 * 60),
+    1 / (20 * 60),
+]
 langmuir_model.root.input.model.unit_001.sec_000.const_coeff = n_comp * [0.0]
 
 langmuir_model.root.input.model.connections.nswitches = 2

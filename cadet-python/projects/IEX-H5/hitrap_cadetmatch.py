@@ -7,15 +7,12 @@ from utils import *
 from CADETProcess.reference import ReferenceIO
 from CADETProcess.comparison import Comparator
 from CADETProcess.processModel import ComponentSystem
-from CADETProcess.processModel import Inlet, LumpedRateModelWithoutPores, Outlet
 from CADETProcess.processModel import FlowSheet
 from CADETProcess.processModel import Process
-from CADETProcess.processModel import ComponentSystem
 from CADETProcess.processModel import Langmuir
 from CADETProcess.processModel import Inlet, Cstr, LumpedRateModelWithPores, Outlet
-from CADETProcess.processModel import FlowSheet
-from CADETProcess.processModel import Process
 from CADETProcess.simulator import Cadet
+from CADETProcess.optimization import OptimizationProblem
 
 load_dotenv()
 
@@ -183,3 +180,50 @@ _ = simulation_results.solution.column.inlet.plot()
 _ = simulation_results.solution.column.outlet.plot()
 
 # comparator.plot_comparison(simulation_results)
+
+optimization_problem = OptimizationProblem("porosity_axial_dispersion")
+
+optimization_problem.add_evaluation_object(process)
+optimization_problem.add_variable(
+    name="ka",
+    parameter_path="flow_sheet.binding_model.adsorption_rate",
+    lb=0.1,
+    ub=0.8,
+    transform="auto",
+)
+optimization_problem.add_variable(
+    name="axial_dispersion",
+    parameter_path="flow_sheet.column.axial_dispersion",
+    lb=1e-9,
+    ub=1e-6,
+    transform="auto",
+)
+optimization_problem.add_variable(
+    name="ka",
+    parameter_path="flow_sheet.binding_model.desorption_rate",
+    lb=0.1,
+    ub=0.8,
+    transform="auto",
+)
+optimization_problem.add_variable(
+    name="ka",
+    parameter_path="flow_sheet.binding_model.capacity",
+    lb=0.1,
+    ub=0.8,
+    transform="auto",
+)
+optimization_problem.add_variable(
+    name="ka",
+    parameter_path="flow_sheet.column.film_diffusion",
+    lb=0.1,
+    ub=0.8,
+    transform="auto",
+)
+
+simulator = Cadet()
+
+optimization_problem.add_evaluator(simulator)
+
+optimization_problem.add_objective(
+    comparator, n_objectives=comparator.n_metrics, requires=[simulator]
+)

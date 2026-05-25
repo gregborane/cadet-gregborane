@@ -4,11 +4,9 @@ import numpy as np
 import sys, os
 from dotenv import load_dotenv
 import matplotlib.pyplot as plt
-from scipy.interpolate import CubicSpline
 from scipy.signal import find_peaks, peak_prominences
 
 sys.path.append("..")
-import subprocess
 
 load_dotenv()
 
@@ -36,6 +34,9 @@ for i, val in enumerate(dy_dt):
     if val > val_max:
         val_max = val
         imax = i
+
+print(f"Dead Volume: {x[imax]}\n")
+print(f"Dead Time: {(x[imax] / 5)}\n")
 
 croissant, decroissant = [], []
 peaks, _ = find_peaks(y)
@@ -84,24 +85,18 @@ tau = main_peak[-2] / Q
 print(tau)
 
 # %%
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8), sharex=False)
+fig, (ax1) = plt.subplots(1, 1, figsize=(10, 8), sharex=False)
 
 # Original Data Plot
 ax1.plot(x, y, "b.-", label="Original Data (y)")
+ax1.set_xlabel("Volume in mL")
+ax1.set_ylabel("Intensity in mAU")
 ax1.plot(x_peaks, y_peaks, "x", markersize=16, label="peaks from scipy")
 ax1.plot(main_peak[0], main_peak[2], "o", color="magenta", label="selected_points")
 ax1.plot(main_peak[1], main_peak[3], "o", color="magenta")
-ax1.set_ylabel("y")
+ax1.plot(x, dy_dx, "r.-", label="Derivative (dy/dx)")
+ax1.set_xlabel("Volume in mL")
+ax1.set_ylabel("d(intensentiy)/d(volume)")
 ax1.set_title("Original Data vs. Computed Derivative")
 ax1.grid(True)
 ax1.legend()
-
-# Derivative Plot
-ax2.plot(x, dy_dx, "r.-", label="Derivative (dy/dx)")
-ax2.set_xlabel("x")
-ax2.set_ylabel("dy/dx")
-ax2.grid(True)
-ax2.legend()
-
-plt.tight_layout()
-plt.show()
