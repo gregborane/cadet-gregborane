@@ -39,46 +39,58 @@ sparsity_structure = diags(
 # =============================================================================
 def column_pde_system(t, y, k_f, D_e):
     c = y[:Nz]
+    # On lit les données, mais on NE DOIT JAMAIS modifier c_p en place
     c_p = y[Nz:].reshape((Nz, Nr))
 
     dc_dt = np.zeros(Nz)
     dcp_dt = np.zeros((Nz, Nr))
 
-    # Centre et coeur
+    # --- A. Phase stationnaire : Diffusion sphérique ---
+    # Centre (r = 0)
     dcp_dt[:, 0] = (D_e / eps_p) * (6 * (c_p[:, 1] - c_p[:, 0]) / dr**2)
+
+    # Cœur (0 < r < R)
     d2cp_dr2 = (c_p[:, 2:] - 2 * c_p[:, 1:-1] + c_p[:, :-2]) / dr**2
     dcp_dr = (c_p[:, 2:] - c_p[:, :-2]) / (2 * dr)
     dcp_dt[:, 1:-1] = (D_e / eps_p) * (d2cp_dr2 + (2.0 / r_inner) * dcp_dr)
 
-    # Surface
-    c_pR = (D_e * c_p[:, -2] + k_f * dr * c) / (D_e + k_f * dr)
-    c_p[:, -1] = c_pR
-    d2cp_dr2_surf = (c_pR - 2 * c_p[:, -2] + c_p[:, -3]) / dr**2
-    dcp_dr_surf = (c_pR - c_p[:, -3]) / (2 * dr)
+    # Surface (r = R) - Résolue rigoureusement via un Point Fantôme
+    c_surf = c_p[:, -1]
+    # Point virtuel à l'extérieur de la bille pour respecter la condition de Robin
+    c_ghost = c_p[:, -2] + (2 * dr * k_f / D_e) * (c - c_surf)
+
+    d2cp_dr2_surf = (c_ghost - 2 * c_surf + c_p[:, -2]) / dr**2
+    dcp_dr_surf = (k_f / D_e) * (c - c_surf)
     dcp_dt[:, -1] = (D_e / eps_p) * (d2cp_dr2_surf + (2.0 / R) * dcp_dr_surf)
 
-    # Phase mobile
+    # --- B. Phase mobile : Convection, Dispersion et Film ---
     c_in = 1.0
+
+    # z = 0 (Entrée) - Schéma Upwind pour la convection
     dc_dz_in = (c[0] - c_in) * (v / D_ax)
     d2c_dz2_in = (c[1] - 2 * c[0] + (c[0] - dc_dz_in * dz)) / dz**2
-    dc_dz_0 = (c[1] - (c[0] - dc_dz_in * dz)) / (2 * dz)
+    dc_dz_0 = (c[0] - c_in) / dz  # Upwind stable
+
     dc_dt[0] = (
         D_ax * d2c_dz2_in
         - (v / eps_c) * dc_dz_0
-        - ((1 - eps_c) / eps_c) * a * k_f * (c[0] - c_p[0, -1])
+        - ((1 - eps_c) / eps_c) * a * k_f * (c[0] - c_surf[0])
     )
 
+    # 0 < z < L (Milieu)
     d2c_dz2 = (c[2:] - 2 * c[1:-1] + c[:-2]) / dz**2
-    dc_dz = (c[2:] - c[:-2]) / (2 * dz)
+    dc_dz = (c[1:-1] - c[:-2]) / dz  # SCHÉMA UPWIND
+
     dc_dt[1:-1] = (
         D_ax * d2c_dz2
         - (v / eps_c) * dc_dz
-        - ((1 - eps_c) / eps_c) * a * k_f * (c[1:-1] - c_p[1:-1, -1])
+        - ((1 - eps_c) / eps_c) * a * k_f * (c[1:-1] - c_surf[1:-1])
     )
 
+    # z = L (Sortie Neumann)
     d2c_dz2_out = (2 * c[-2] - 2 * c[-1]) / dz**2
     dc_dt[-1] = D_ax * d2c_dz2_out - ((1 - eps_c) / eps_c) * a * k_f * (
-        c[-1] - c_p[-1, -1]
+        c[-1] - c_surf[-1]
     )
 
     return np.concatenate([dc_dt, dcp_dt.flatten()])
@@ -174,4 +186,4 @@ if __name__ == "__main__":
     plt.grid(True)
     plt.legend()
     plt.tight_layout()
-    plt.show()
+    plt.savefig("tries.png")
