@@ -1,0 +1,7 @@
+Equilibration buffer (A): 20 mM Tris HCL, pH 8
+Elution buffer (B): 20 mM Tris HCl, 1 M NaCl pH 8
+
+3-	Loading of 5 ml: 2,35 ml/min = 3 min
+4-	Wash (A): 7 CV 4,7 mL/min = 7 min 
+5-	Elution (A+B) : 18 CV 4,7 ml/min 
+

@@ -1,0 +1,80 @@
+# mesurer les propriétés physiques simples/triviales/evidentes d'une colone
+
+
+## objectifs
+
+- recherche de la porosité de la colone,
+- volume mort, temps mort,
+- sigma et tau pour une molecule donnée le rapport est constant donc on mesurera sigma/tau,
+
+## references
+
+extrait de : 10.1016/j.chroma.2017.11.038
+
+Mechanical characterisation of agarose-based chromatography resins
+for biopharmaceutical manufacture
+Mauryn C. Nwekea, R. Graham McCartney b, Daniel G. Bracewell a,∗
+
+2% v/v of acetone was measured and added into 30 ml of dH2O in a 50 ml falcon tube (CELLSTAR®, UK). 1 ml of this solution was injected into a 600 μl loop and then loaded onto the column. The eluent used in this study was dH2O at 30 cm/hr. A peak was then generated within 30 min. The asymmetry was calculated using the in-built function on the Unicorn 6.4 software.
+
+extrait de :  https://doi.org/10.1016/j.jqsrt.2008.02.010
+
+Journal of Quantitative Spectroscopy &
+Radiative Transfer 109 (2008) 2037–2044
+
+Lambda max acetone:
+275-280 nm à 300 K ~ 25 °C
+
+
+# méthode
+
+on mesurera le volume mort, sigma et tau respectivement d'une colone à l'aide de l'acetone qui ne se lie pas aux colones échangeuses d'ions.
+Le volume de sortie correspondra donc au volume "mort" c'est a dire le volume vraie de la colone (Vtotal - Vresine)
+
+
+# materiel
+
+1 erlenmyer de 50 mL / falcon de 50 mL
+4 fioles de 10 mL
+une pissette a acetone
+une pissette d'eau distillée
+1 petite eprouvette graduée (0.1 ml de pallier)
+1 éprouvette graduée
+1 seringue d'injection pour l'akta
+la colone echangeuse d'anion ciblée
+
+all solutions at 100 mM
+c = n / V
+n = m / M
+- benzyltriethylammonium chloride (M = 227.77) (n / 10**-2 L = 100 mM <=> n = 10**-1 * 10**-2 = 0.001 mol <=> m = 0.001 * 227.77 = 0.22777 g )
+- Hexaamminecobalt(III) chloride  (M = 267.43) (n / 10**-2 L = 100 mM <=> n = 10**-1 * 10**-2 = 0.001 mol <=> m = 0.001 * 267.43 = 0.26743 g )
+- blue dextran                    (M = 2000  ) (n / 10**-2 L = 100 mM <=> n = 10**-1 * 10**-2 = 0.001 mol <=> m = 0.001 * 2000   = 2.00000 g )
+- CuSO4                           (M = 159.61) (n / 10**-2 L = 100 mM <=> n = 10**-1 * 10**-2 = 0.001 mol <=> m = 0.001 * 227.77 = 0.15961 g )
+- Tris 550 nM                     (M = 121.14, masse_vol = 1353 g/L) (depends de la solution initiale)
+- Cesium Acetate 450 nM           (M = 191.95, masse_vol = 1420 g/L) (depends de la solution initiale)
+- 0.6 mL acetone
+
+BTEAC : 210 nm
+[Co(NH3)6Cl3]3+ : 226 nm
+Blue Dextran : 280 nm
+
+# manipulation
+
+## creation de la solution
+peser les masses de tracers et préparer les solutions
+- remplir un ou deux mL d'eau 
+- incorporer la pesée
+- finir de dilluer
+- mélanger
+
+- mélanger 0.6 mL d'acetone avec 30 mL dH20 ou miliqH2O
+
+## mesure
+wash à l'éthanol
+wash à l'eau distillée
+load with Tris + Acetate Cs
+
+injection de la solution de tracer dans la colone a 30 cm/hr avec la loop d'injection
+
+wash à l'eau
+wash à l'éthanol

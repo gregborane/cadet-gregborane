@@ -1,0 +1,23 @@
+Equilibration buffer (A): 5 mM sodium phosphate, pH 7.4 
+Elution buffer (B): 500 mM sodium phosphate, pH 7.4
+
+
+Steps
+1-	Equilibration (A) : 5 CV 0.75 ml/min : 7 min
+2-	Loading (5ml sample loop) : 0.75 ml/min = 8 min
+3-	Wash (A): 7 CV 0.75 mL/min = 9 min 
+4-	Elution (A+B) : 20 CV 0.75 ml/min = 27 min 
+5-	Wash (B): 5 CV 0.75 ml/min = 7 min
+
+
+Equilibration buffer (A): 5 mM sodium phosphate 200 mM NaCl, pH 8
+Elution buffer (B): 5 mM sodium phosphate, pH 8
+
+
+Steps
+1-	Equilibration (A) : 5 CV 0.75 ml/min : 7 min
+2-	Loading (5ml sample loop) : 0.75 ml/min = 8 min
+3-	Wash (A): 7 CV 0.75 mL/min = 9 min 
+4-	Elution (A+B) : 20 CV 0.75 ml/min = 27 min 
+5-	Wash (B): 5 CV 0.75 ml/min = 7 min
+
