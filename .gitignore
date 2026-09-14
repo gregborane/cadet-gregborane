@@ -1,17 +1,16 @@
 # CADET-Core
 CADET-Core
 
+# Env file
 projects/.env
 
-# act-project
-projects/act-isotherm/graphs
-projects/act-isotherm/h5
+# Graph
+projects/graphs
 
-# IEX-H5
-projects/IEX-H5/graphs
-projects/IEX-H5/h5
+# H5
+projects/h5
 
-# data
-cadet-python/data
+# Data
+data/confiendential
 
 

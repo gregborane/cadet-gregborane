@@ -24,8 +24,9 @@ ____
 In this repo, you can find :
 
 - both existing tutorial for the front-ends,
-- guide to install adequate python env ([anaconda](https://www.anaconda.com/)) and install latest CADET-Core,
-- some projects I did and some results + calculation files.
+- guide to install adequate python env ([anaconda](https://www.anaconda.com/)) and install latest CADET-Core
+- Code for the projects
+- Some chromatograms
 
 ```
 |
@@ -33,13 +34,24 @@ In this repo, you can find :
 |-- cadet-python ---|
                     |
                     |-- Install           : .yml + .sh
-                    |-- Projects examples : ACT-Isotherm, Template (probably)
                     |-- Tuto              : cloned
+|
+|
+|---- Projects ----|
+                   |
+                   |-- Graphs      : .yml + .sh
+                   |-- H5 files    : cloned
+                   |-- Code        : python codes for the projects
+|
+|
+|------ Data ------|
+                   |
+                   |-- Chromatogram
+                   |-- BT measurements
 |
 |
 |- cadet-process --|
                    |
                    |-- Install  : .yml + .sh
-                   |-- Projects : Template to set up quickly a simulation
                    |-- Tuto     : cloned
 ```
