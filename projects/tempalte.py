@@ -1,43 +1,3 @@
-# %% [markdown]
-
-"""
-
-number are to be verified.
-```
--sec_000------ Inlet1 ---|
-                         |
--sec_001------ Inlet2 ----->---sec_001--[ Col ]-sec_002--[ Outlet ]
-
-```
-
-Inlet1 contains :
-
-buffer + salt  : NaPO4(-) + [Na+;Cl-] at
-pH = 8 and
-[phosphate] = 50 mM
-[NaCl] = 200 mM
-
-Inlet2 contains :
-Protein :
-Impurities1 :
-Impurities2 :
-
-Dumper : simulate reality but might be removed
-
-Col : Multi Langmuir and General Rate model to start and see if the first position seems realistic
-
-Outlet with the 3 mol from Inlet2
-"""
-
-"""
-
-SOLUTION : 1 , 2, 3 -> CHROMMATOGRAPHY -> 1 puis 2 puis 3
-
-RESINE 
-
-"""
-
-
 # %%
 import sys
 
@@ -71,15 +31,14 @@ langmuir_model.root.input.model.unit_002.init_c = n_comp * [0.0]
 # Column
 langmuir_model.root.input.model.unit_003.unit_type = "LUMPED_RATE_MODEL_WITH_PORES"
 langmuir_model.root.input.model.unit_003.ncomp = n_comp
-
 langmuir_model.root.input.model.unit_003.col_length = 0.6
 langmuir_model.root.input.model.unit_003.cross_section_area = 1.0386890710931253e-4
 langmuir_model.root.input.model.unit_003.col_porosity = 0.37
 langmuir_model.root.input.model.unit_003.par_porosity = 0.33
 langmuir_model.root.input.model.unit_003.par_radius = 4.5e-5
-
 langmuir_model.root.input.model.unit_003.col_dispersion = 2.0e-7
 langmuir_model.root.input.model.unit_003.film_diffusion = n_comp * [1e-4]
+
 
 langmuir_model.root.input.model.unit_003.adsorption_model = "MULTI_COMPONENT_LANGMUIR"
 langmuir_model.root.input.model.unit_003.nbound = n_comp * [1]
