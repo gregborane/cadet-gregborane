@@ -1,0 +1,216 @@
+Using checkPhaseThreadLimitHook
+-- Found Git: /etc/profiles/per-user/greg/bin/git (found version "2.55.0")
+-- Get version from git
+-- CADET version: 6.0.0a4
+-- Current git HEAD: master SHA1 9e8a77a1fc368ed1afaf4f2a9c80cbed86fc790d
+-- The CXX compiler identification is GNU 15.3.0
+-- The C compiler identification is GNU 15.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /nix/store/z4c6k0mrlkwl3s4w9ysxc8vq1wylm3ms-gcc-wrapper-15.3.0/bin/gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Build type: Release (default)
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Looking for sgemm_
+-- Looking for sgemm_ - found
+-- Found BLAS: /nix/store/j1n0j1bbfmsxabgn31m4620l48946i9l-mkl-2023.1.0.46342/lib/libmkl_intel_lp64.so;/nix/store/j1n0j1bbfmsxabgn31m4620l48946i9l-mkl-2023.1.0.46342/lib/libmkl_intel_thread.so;/nix/store/j1n0j1bbfmsxabgn31m4620l48946i9l-mkl-2023.1.0.46342/lib/libmkl_core.so;/nix/store/j1n0j1bbfmsxabgn31m4620l48946i9l-mkl-2023.1.0.46342/lib/libiomp5.so;-lm;-ldl
+-- Looking for cheev_
+-- Looking for cheev_ - found
+-- A library with LAPACK API found.
+-- Found BLAS: /nix/store/yfs07ymlj0ci9dj01jy35k2d3mra73rz-blas-3/lib/libblas.so
+-- HDF5 C compiler wrapper is unable to compile a minimal HDF5 program.
+-- Found HDF5: /nix/store/00skrrvp7n0h3gp8najps2k51p15va33-hdf5-cpp-1.14.6/lib/libhdf5.so (found version "1.14.6") found components: C
+-- Performing Test HDF5_DONT_NEED_ZLIBS
+-- Performing Test HDF5_DONT_NEED_ZLIBS - Success
+-- Found SuperLU: TRUE (found version "7.0.1")
+-- Found UMFPACK: TRUE (found version "6.3.5")
+-- AD library: SFAD
+-- Added build tools
+-- Performing Test COMPILER_SUPPORT_NOEXCEPT_DEFAULTED_MOVE
+-- Performing Test COMPILER_SUPPORT_NOEXCEPT_DEFAULTED_MOVE - Success
+-- Added LIBCADET module
+-- Added CADET-CLI module
+-- Added tools
+-- The following features have been enabled:
+
+ * ENABLE_LOGGING, Enables logging
+ * ENABLE_2D_MODELS, Build 2D models (e.g., 2D general rate model, multichannel transport)
+ * ENABLE_CADET_CLI, Build CADET command line interface
+ * ENABLE_CADET_TOOLS, Build CADET tools
+ * ENABLE_IPO, Enable interprocedural optimization if compiler supports it
+ * CMAKE_INSTALL_RPATH_USE_LINK_PATH, Add paths to linker search and installed rpath
+
+-- The following OPTIONAL packages have been found:
+
+ * Git
+ * Threads
+ * BLAS
+
+-- The following RECOMMENDED packages have been found:
+
+ * HDF5, Hierarchical Data Format 5 (HDF5), <https://www.hdfgroup.org/HDF5>
+   File IO
+ * SuperLU, Supernodal sparse direct solver, <http://crd-legacy.lbl.gov/~xiaoye/SuperLU/>
+   Sparse matrix solver
+ * UMFPACK, UMFPACK sparse direct solver from SuiteSparse, <http://faculty.cse.tamu.edu/davis/suitesparse.html>
+   Sparse matrix solver
+
+-- The following REQUIRED packages have been found:
+
+ * Eigen3
+
+-- The following features have been disabled:
+
+ * ENABLE_BENCHMARK, Enables benchmark mode (fine-grained timing)
+ * ENABLE_PLATFORM_TIMER, Use a platform-dependent timer
+ * ENABLE_THREADING, Use multi-threading
+ * ENABLE_DEBUG_THREADING, Use multi-threading in debug builds
+ * ENABLE_SUNDIALS_OPENMP, Prefer OpenMP vector implementation of SUNDIALS if available (for large problems)
+ * ENABLE_ANALYTIC_JACOBIAN_CHECK, Enable verification of analytical Jacobian by AD
+ * ENABLE_TESTS, Build CADET tests
+ * ENABLE_CADETTEST_LOGGING, Enables logging in Testsets
+ * ENABLE_ASAN, Enable address sanitizer (clang and gcc)
+ * ENABLE_UBSAN, Enable undefined behavior sanitizer (clang and gcc)
+ * ENABLE_STATIC_LINK_DEPS, Prefer static over dynamic linking of dependencies
+ * ENABLE_STATIC_LINK_LAPACK, Prefer static over dynamic linking of LAPACK and BLAS
+ * ENABLE_STATIC_LINK_CLI, Prefer static over dynamic linking for CADET CLI
+ * ENABLE_TEST_RADIAL, Build TimeIntegrator and radial tests
+
+-- Configuring done (3.9s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/greg/Work/cadet/CADET-Core/build
+[  4%] Building CXX object src/libcadet/CMakeFiles/libcadet_nonlinalg_static.dir/linalg/BandMatrix.cpp.o
+[  4%] Building CXX object src/build-tools/CMakeFiles/templateCodeGen.dir/templateCodeGen.cpp.o
+[  4%] Building CXX object src/tools/CMakeFiles/createLWE.dir/createLWE.cpp.o
+[  4%] Building CXX object src/tools/CMakeFiles/convertFile.dir/convertFile.cpp.o
+[  4%] Building CXX object src/tools/CMakeFiles/convertFile.dir/__/io/FileIO.cpp.o
+[  5%] Building CXX object src/libcadet/CMakeFiles/libcadet_nonlinalg_static.dir/linalg/DenseMatrix.cpp.o
+[  6%] Building CXX object src/tools/CMakeFiles/convertFile.dir/FormatConverter.cpp.o
+[  6%] Building CXX object src/libcadet/CMakeFiles/libcadet_nonlinalg_static.dir/linalg/SparseMatrix.cpp.o
+[  7%] Building CXX object src/tools/CMakeFiles/convertFile.dir/__/__/ThirdParty/pugixml/pugixml.cpp.o
+[  8%] Building CXX object src/libcadet/CMakeFiles/libcadet_nonlinalg_static.dir/linalg/CompressedSparseMatrix.cpp.o
+[  8%] Building CXX object src/libcadet/CMakeFiles/libcadet_nonlinalg_static.dir/linalg/Gmres.cpp.o
+[  9%] Building CXX object src/libcadet/CMakeFiles/libcadet_nonlinalg_static.dir/nonlin/AdaptiveTrustRegionNewton.cpp.o
+[ 10%] Building CXX object src/libcadet/CMakeFiles/libcadet_nonlinalg_static.dir/nonlin/LevenbergMarquardt.cpp.o
+[ 10%] Building CXX object src/libcadet/CMakeFiles/libcadet_nonlinalg_static.dir/nonlin/PseudoTransientContinuation.cpp.o
+[ 11%] Building CXX object src/libcadet/CMakeFiles/libcadet_nonlinalg_static.dir/nonlin/CompositeSolver.cpp.o
+[ 11%] Building CXX object src/libcadet/CMakeFiles/libcadet_nonlinalg_static.dir/nonlin/Solver.cpp.o
+[ 12%] Building CXX object src/libcadet/CMakeFiles/libcadet_nonlinalg_static.dir/linalg/EigenSolverWrapper.cpp.o
+[ 12%] Linking CXX executable createLWE
+[ 13%] Building CXX object src/libcadet/CMakeFiles/libcadet_nonlinalg_static.dir/linalg/SuperLUSparseMatrix.cpp.o
+[ 13%] Building CXX object src/libcadet/CMakeFiles/libcadet_nonlinalg_static.dir/linalg/UMFPackSparseMatrix.cpp.o
+[ 13%] Linking CXX executable convertFile
+[ 13%] Built target createLWE
+[ 14%] Linking CXX executable templateCodeGen
+[ 14%] Built target convertFile
+[ 14%] Built target templateCodeGen
+[ 15%] Linking CXX static library libcadet_nonlinalg_static.a
+[ 15%] Built target libcadet_nonlinalg_static
+[ 16%] Generating code for StericMassActionBinding
+[ 17%] Generating code for AffinityComplexTitrationBinding
+[ 17%] Generating code for AntiLangmuirBinding
+[ 18%] Generating code for BiLangmuirBinding
+[ 19%] Generating code for BiLangmuirLDFBinding
+[ 20%] Generating code for BiStericMassActionBinding
+[ 20%] Generating code for ColloidalBinding
+[ 21%] Generating code for CrystallizationReaction
+[ 21%] Generating code for DummyBinding
+[ 22%] Generating code for ExtendedMobilePhaseModulatorLangmuirBinding
+[ 23%] Generating code for DummyReaction
+[ 23%] Generating code for FreundlichLDFBinding
+[ 23%] Generating code for GaussianProcessRegressionBinding
+[ 25%] Generating code for HICConstantWaterActivityBinding
+[ 25%] Generating code for GeneralizedIonExchangeBinding
+[ 25%] Generating code for HICUnifiedBinding
+[ 25%] Generating code for HICWaterOnHydrophobicSurfacesBinding
+[ 25%] Generating code for KumarLangmuirBinding
+[ 25%] Generating code for LangmuirBinding
+[ 25%] Generating code for LangmuirLDFBinding
+[ 26%] Generating code for LangmuirLDFCBinding
+[ 27%] Generating code for LinearBinding
+[ 27%] Generating code for MassActionLawReaction
+[ 28%] Generating code for MassActionLawReactionCrossPhase
+[ 28%] Generating code for MichaelisMentenReaction
+[ 29%] Generating code for MobilePhaseModulatorLangmuirBinding
+[ 30%] Generating code for MultiComponentLDFFreundlichBinding
+[ 32%] Generating code for MultiComponentSpreadingBinding
+[ 32%] Generating code for MultiStateStericMassActionBinding
+[ 33%] Generating code for NeuralNetworkBinding
+[ 33%] Generating code for SaskaBinding
+[ 34%] Generating code for SelfAssociationBinding
+[ 34%] Generating code for SimplifiedMultiStateStericMassActionBinding
+[ 35%] Generating code for SipsBinding
+[ 36%] Generating code for SplineBinding
+[ 37%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/Logging.cpp.o
+[ 37%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/VersionInfo.cpp.o
+[ 38%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/FactoryFuncs.cpp.o
+[ 38%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/ModelBuilderImpl.cpp.o
+[ 38%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/AutoDiff.cpp.o
+[ 39%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/AdUtils.cpp.o
+[ 40%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/api/CAPIv1.cpp.o
+[ 41%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/SimulatorImpl.cpp.o
+[ 42%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/Weno.cpp.o
+[ 42%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/ParticleModelFactory.cpp.o
+[ 43%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/BindingModelFactory.cpp.o
+[ 43%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/ExchangeModelFactory.cpp.o
+[ 44%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/ReactionModelFactory.cpp.o
+[ 45%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/ParameterDependenceFactory.cpp.o
+[ 45%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/graph/GraphAlgos.cpp.o
+[ 46%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/ModelSystemImpl.cpp.o
+[ 46%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/ModelSystemImpl-Residual.cpp.o
+[ 47%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/ModelSystemImpl-LinearSolver.cpp.o
+[ 48%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/ModelSystemImpl-InitialConditions.cpp.o
+[ 48%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/UnitOperationBase.cpp.o
+[ 49%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/InletModel.cpp.o
+[ 49%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/OutletModel.cpp.o
+[ 50%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/StirredTankModel.cpp.o
+[ 51%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/LumpedRateModelWithoutPores.cpp.o
+[ 51%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/LumpedRateModelWithPores.cpp.o
+[ 52%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/GeneralRateModel.cpp.o
+[ 52%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/ColumnModelBuilder.cpp.o
+[ 53%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/ParameterMultiplexing.cpp.o
+[ 54%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/parts/ConvectionDispersionOperatorFV.cpp.o
+[ 54%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/parts/AxialConvectionDispersionKernelFV.cpp.o
+[ 55%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/parts/RadialConvectionDispersionKernelFV.cpp.o
+[ 55%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/parts/FrustumConvectionDispersionKernelFV.cpp.o
+[ 56%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/reaction/ReactionModelBase.cpp.o
+[ 57%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/binding/BindingModelBase.cpp.o
+[ 57%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/inlet/PiecewiseCubicPoly.cpp.o
+[ 58%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/extfun/LinearInterpolationExternalFunction.cpp.o
+[ 59%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/extfun/PiecewiseCubicPolyExternalFunction.cpp.o
+[ 59%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/paramdep/ParameterDependenceBase.cpp.o
+[ 60%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/paramdep/LiquidSaltSolidParameterDependence.cpp.o
+[ 60%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/paramdep/DummyParameterDependence.cpp.o
+[ 61%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/paramdep/IdentityParameterDependence.cpp.o
+[ 62%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/paramdep/PowerLawParameterDependence.cpp.o
+[ 62%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/paramdep/VanDeemterParameterDependence.cpp.o
+[ 63%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/parts/TwoDimensionalConvectionDispersionOperatorFV.cpp.o
+[ 63%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/GeneralRateModel2D.cpp.o
+[ 64%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/GeneralRateModel2D-LinearSolver.cpp.o
+[ 65%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/GeneralRateModel2D-InitialConditions.cpp.o
+[ 65%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/parts/MultiChannelConvectionDispersionOperator.cpp.o
+[ 66%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/MultiChannelTransportModel.cpp.o
+[ 66%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/MultiChannelTransportModel-LinearSolver.cpp.o
+[ 67%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/MultiChannelTransportModel-InitialConditions.cpp.o
+[ 68%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/parts/DGToolbox.cpp.o
+[ 68%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/parts/ConvectionDispersionOperatorDG.cpp.o
+[ 69%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/particle/GeneralRateParticle.cpp.o
+[ 69%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/particle/HomogeneousParticle.cpp.o
+[ 70%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/parts/ParticleDiffusionOperatorBase.cpp.o
+[ 71%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/parts/ParticleDiffusionOperatorDG.cpp.o
+[ 71%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/parts/ParticleDiffusionOperatorFV.cpp.o
+[ 72%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/LumpedRateModelWithoutPoresDG.cpp.o
+[ 72%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/ColumnModel1D.cpp.o
+[ 73%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/parts/TwoDimensionalConvectionDispersionOperatorDG.cpp.o
+[ 74%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/ColumnModel2D.cpp.o
+[  2%] Built target templateCodeGen
+[ 11%] Built target libcadet_nonlinalg_static
+[ 11%] Building CXX object src/libcadet/CMakeFiles/libcadet_object.dir/model/parts/ConvectionDispersionOperatorDG.cpp.o
