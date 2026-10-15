@@ -91,7 +91,7 @@ langmuir_model.root.input.model.connections.switch_001.connections = [
 langmuir_model.root.input.solver.user_solution_times = np.linspace(0, t_cycle, 601)
 
 # %%
-langmuir_model.filename = f"protein_imp_simu.h5"
+langmuir_model.filename = "protein_imp_simu.h5"
 langmuir_model.save()
 data = langmuir_model.run()
 langmuir_model.load()
@@ -120,3 +120,6 @@ plt.title("Column (Outlet)")
 plt.xlabel("$time~/~min$")
 plt.ylabel("$concentration~/~mM$")
 plt.show()
+# %%
+
+

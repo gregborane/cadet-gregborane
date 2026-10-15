@@ -1,5 +1,5 @@
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def compute_kernel_matrix_vectorized(r_h_vec, r_p_vec):
@@ -8,6 +8,7 @@ def compute_kernel_matrix_vectorized(r_h_vec, r_p_vec):
     r_p = np.asarray(r_p_vec)[np.newaxis, :]
     return np.maximum(0, 1.0 - (r_h / r_p)) ** 2
 
+ 
 
 def deconvolve_richardson_lucy(Ksec_exp, K_phys, iterations=500):
     """
@@ -62,7 +63,7 @@ if __name__ == "__main__":
     true_psd = 0.6 * np.exp(-(((r_p_vec - 5.0) / 2.0) ** 2)) + 0.4 * np.exp(
         -(((r_p_vec - 25.0) / 6.0) ** 2)
     )
-    true_psd /= np.trapz(true_psd, r_p_vec)
+    true_psd /= np.trapezoid(true_psd, r_p_vec)
 
     K_phys = compute_kernel_matrix_vectorized(r_h_exp, r_p_vec)
     Ksec_pure = K_phys @ (true_psd * dr_p)
@@ -80,13 +81,13 @@ if __name__ == "__main__":
 
     # Recalcul de la courbe ajustée pour l'affichage
     Ksec_fit = K_phys @ w_rec
-    psd_density = w_rec / (np.trapz(w_rec, r_p_vec) + 1e-12)
+    psd_density = w_rec / (np.trapezoid(w_rec, r_p_vec) + 1e-12)
 
     # 3. Affichage des résultats
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(18, 5))
 
     ax1.plot(r_h_exp, Ksec_exp, "ro", label="Ksec exp (bruité)")
-    ax1.plot(r_h_exp, Ksec_fit, "b--", label=f"Ajustement RL")
+    ax1.plot(r_h_exp, Ksec_fit, "b--", label="Ajustement RL")
     ax1.set_title("Exclusion ISEC")
     ax1.legend()
 
@@ -99,3 +100,5 @@ if __name__ == "__main__":
 
     plt.tight_layout()
     plt.show()
+# %%
+
